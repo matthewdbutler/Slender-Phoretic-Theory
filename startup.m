@@ -1,0 +1,5 @@
+addpath('./examples')
+addpath('./geometry')
+addpath('./laplace')
+addpath('./stokes')
+addpath('./spectral')

@@ -12,7 +12,7 @@ Issues to avoid:    ensure activity jumps are at least epsilon away from gridpoi
                     neval should not be too large (suggest <2/epsilon)
 
 Can run pre-set examples using:
-geometry_examples(centreline,rhochoice,activity,mobility)
+geometry_examples(centreline,rhochoice,activity)
 
 The different options are:
 centreline  = 1     straight
@@ -30,9 +30,9 @@ activity    = 1     uniform
             = 3     Janus (in theta)
             = 4     sin(theta)
             = 5     sqrt(1-s^2)
-mobility    = 1     uniform (only current option)
 
-e.g. uniform cylinder is (1,1,1,1), Janus prolate spheroid is (1,2,2,1), glazed donut is (2,1,3,1)
+e.g. uniform cylinder is (1,1,1), Janus prolate spheroid is (1,2,2), glazed donut is (2,1,3)
+Note the mobility is always uniformly = 1
 
 %%
 
@@ -102,4 +102,3 @@ solution.U          = swimiming velocity
 solution.Omega      = rotational velocity
 
 Note: before invFourierSeries is run, solution is stored as Fourier modes
-

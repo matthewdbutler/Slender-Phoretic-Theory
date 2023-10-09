@@ -1,4 +1,4 @@
-addpath('./examples')
+addpath(genpath('./examples'))
 addpath('./geometry')
 addpath('./laplace')
 addpath('./stokes')

@@ -19,9 +19,10 @@ centreline  = 1     straight
             = 2     torus
             = 3     arc/U
             = 4     trefoil
-            = 5     Mobius
-            = 6     trefoil (alternate)
-            = 7     random
+            = 5     trefoil (alternate)
+            = 6     trefoil (2nd alternate)
+            = 7     Mobius strip
+            = 8     random curve
 rhochoice   = 1     constant (cylinder/rod)
             = 2     prolate spheroid
             = 3     bumps
@@ -30,6 +31,7 @@ activity    = 1     uniform
             = 3     Janus (in theta)
             = 4     sin(theta)
             = 5     sqrt(1-s^2)
+            = 6     twisted Janus
 
 e.g. uniform cylinder is (1,1,1), Janus prolate spheroid is (1,2,2), glazed donut is (2,1,3)
 Note the mobility is always uniformly = 1

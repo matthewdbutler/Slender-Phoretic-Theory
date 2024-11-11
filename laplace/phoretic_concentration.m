@@ -21,9 +21,12 @@ first_order_integral = zeros(1,neval); % first order integral if axisymm
 for i = 1:neval %loop over evaluation points
    
     %Quadrature vectors
-    dx = mesh.xquad(xind,:) - mesh.xeval(1,i);
-    dy = mesh.xquad(yind,:) - mesh.xeval(2,i);
-    dz = mesh.xquad(zind,:) - mesh.xeval(3,i);
+    % dx = mesh.xquad(xind,:) - mesh.xeval(1,i);
+    % dy = mesh.xquad(yind,:) - mesh.xeval(2,i);
+    % dz = mesh.xquad(zind,:) - mesh.xeval(3,i);
+    dx =  mesh.xeval(1,i) - mesh.xquad(xind,:);
+    dy =  mesh.xeval(2,i) - mesh.xquad(yind,:);
+    dz =  mesh.xeval(3,i) - mesh.xquad(zind,:);
     
     %R_0 in equation (distance in integrand)
     r2 = dx.^2 + dy.^2 + dz.^2;
@@ -53,8 +56,10 @@ for i = 1:neval %loop over evaluation points
         r3 = r.^3;
 
         % Split integrand into cos and sin modes
-        r0_dot_norm = dx.*mesh.normal_quad(xind,:) + dy.*mesh.normal_quad(yind,:) + dz.*mesh.normal_quad(zind,:);
-        r0_dot_binorm = dx.*mesh.binormal_quad(xind,:) + dy.*mesh.binormal_quad(yind,:) + dz.*mesh.binormal_quad(zind,:);
+        % r0_dot_norm = dx.*mesh.normal_quad(xind,:) + dy.*mesh.normal_quad(yind,:) + dz.*mesh.normal_quad(zind,:);
+        % r0_dot_binorm = dx.*mesh.binormal_quad(xind,:) + dy.*mesh.binormal_quad(yind,:) + dz.*mesh.binormal_quad(zind,:);
+        r0_dot_norm = dx.*mesh.normal_eval(1,i) + dy.*mesh.normal_eval(2,i) + dz.*mesh.normal_eval(3,i);
+        r0_dot_binorm = dx.*mesh.binormal_eval(1,i) + dy.*mesh.binormal_eval(2,i) + dz.*mesh.binormal_eval(3,i);
 
         integrand_cos = mesh.rho_quad.*mesh.activity_quad.*r0_dot_norm./r3 + mesh.rho_eval(i)*mesh.curvature_eval(i)*mesh.activity_eval(i)./(2*abs(q));
         integrand_sin = mesh.rho_quad.*mesh.activity_quad.*r0_dot_binorm./r3;
